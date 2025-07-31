@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fmtsql"
+authors = [
+    { name = "Paresh Adhia", email = "padhia@gmail.com" },
+]
+description = "Format SQL statements"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = [ "sqlglot" ]
+dynamic = ["version"]
+
+[project.scripts]
+fmtsql = "fmtsql:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "fmtsql.__version__" }
+
+[tool.ruff]
+target-version = "py312"
+line-length = 130
+lint.extend-select = ["I"]
